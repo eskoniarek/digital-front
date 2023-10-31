@@ -1,5 +1,6 @@
 import { Product } from "@medusajs/medusa"
 import { ProductVariant } from "@medusajs/product"
+
 export enum ProductMediaVariantType {
     PREVIEW = "preview",
     MAIN = "main",
