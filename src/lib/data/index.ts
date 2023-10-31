@@ -6,7 +6,22 @@ import {
   ProductCollection,
 } from "@medusajs/medusa"
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
-
+// import { ProductMediaVariantType, FilterableProductMediaFields,  } from "types/product-media"
+// export async function getProductMediaPreviewByVariant(
+  // variant: ProductMediaVariantType
+// ): Promise<ProductMediaS> {
+  // const { product_medias } = await medusaRequest("GET", `/listProductMedia`, {
+    // query: {
+      // variant_ids: variant_id,
+      // expand: ["variants"],
+    // },
+  // })
+    // .then((res) => res.body)
+    // .catch((err) => {
+      // throw err
+    // })
+// 
+  // return product_medias[0]
 export type ProductCategoryWithChildren = Omit<
   ProductCategory,
   "category_children"
