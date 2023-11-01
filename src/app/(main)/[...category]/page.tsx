@@ -1,20 +1,33 @@
-import { Metadata } from 'next'
-import Head from 'next/head'
+import { getCategoryByHandle } from "@lib/data"
+import CategoryTemplate from "@modules/categories/templates"
+import { Metadata } from "next"
+import { notFound } from "next/navigation"
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = {
+  params: { category: string[] }
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { product_categories } = await getCategoryByHandle(
+    params.category
+  ).catch((err) => {
+    notFound()
+  })
+
+  const category = product_categories[0]
+
   return {
-    title: 'PrintInc Shop',
-    description: 'Shop for print-ready high-resolution PNG files',
+    title: `${category.name} | PrintInc Shop`,
+    description: `${category.name} category`,
   }
 }
 
-export default function CategoryPage() {
-  return (
-    <>
-      <Head>
-        <title>PrintInc Shop</title>
-        <meta name="description" content="Shop for print-ready high-resolution art and design." />
-      </Head>
-    </>
-  )
+export default async function CategoryPage({ params }: Props) {
+  const { product_categories } = await getCategoryByHandle(
+    params.category
+  ).catch((err) => {
+    notFound()
+  })
+
+  return <CategoryTemplate categories={product_categories} />
 }

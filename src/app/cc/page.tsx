@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import { Metadata } from 'next';
 import Nav from '@modules/layout/templates/nav';

@@ -3,7 +3,6 @@ const store = require("./store.config.json")
 
 module.exports = withStoreConfig({
   experimental: {
-    serverActions: true,
     serverComponentsExternalPackages: [
       "@medusajs/product",
       "@medusajs/modules-sdk",
@@ -13,7 +12,6 @@ module.exports = withStoreConfig({
   reactStrictMode: true,
   images: {
     domains: [
-      "store-diet.s3.eu-north-1.amazonaws.com",
       "localhost",
     ],
   },
